@@ -10,7 +10,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
 
 # Inherit some common LineageOS stuff
-$(call inherit-product, vendor/pixys/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+
+# Disable EPPE
+TARGET_DISABLE_EPPE := true
 
 # Bootanimation
 TARGET_BOOT_ANIMATION_RES := 1080
@@ -22,18 +25,12 @@ TARGET_GAPPS_ARCH := arm64
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := pixys_X00TD
+PRODUCT_NAME := lineage_X00TD
 PRODUCT_DEVICE := X00TD
 PRODUCT_BRAND := asus
 PRODUCT_MODEL := Zenfone Max Pro M1
 PRODUCT_MANUFACTURER := asus
-
 PRODUCT_GMS_CLIENTID_BASE := android-asus
-
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_DEVICE=ASUS_X00T \
-    PRODUCT_NAME=WW_X00T \
-    PRIVATE_BUILD_DESC="sdm660_64-user 8.1.0 OPM1 1309 release-keys"
-
-# Build fingerprint
-BUILD_FINGERPRINT := "asus/WW_X00TD/ASUS_X00T_2:8.1.0/OPM1/15.2016.1805.318-20180712:user/release-keys"
+    PRODUCT_NAME=WW_X00T
